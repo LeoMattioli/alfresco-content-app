@@ -1,0 +1,78 @@
+{
+  "$schema": "../../../../extension.schema.json",
+  "$id": "cast.plugin",
+  "$version": "1.0.0",
+  "$name": "cast.ui.plugin",
+  "$description": "Estensioni base CASTGroup",
+  "$vendor": "HARS srl",
+  "$license": "Apache-2.0",
+  "$runtime": "1.0.0",
+
+  "features": {
+    "navbar": [
+      {
+        "id": "app.navbar.primary",
+        "items": [
+          {
+            "id": "app.navbar.cast.docview",
+            "order": 50,
+            "icon": "loyalty",
+            "title": "CAST.DOCVIEW.TITOLO",
+            "description": "CAST.DOCVIEW.TOOLTIP",
+            "route": "cast"
+          }
+        ]
+      }
+    ],
+    "toolbar": [
+      {
+        "id": "cast.toolbar.more",
+        "type": "menu",
+        "order": 1000,
+        "icon": "motorcycle",
+        "title": "Toolbar",
+        "children": [
+          {
+            "id": "cast.toolbar.view1",
+            "order": 100,
+            "icon": "view_list",
+            "title": "Switch view",
+            "description": "CAST.PRATICA.TITOLO",
+            "actions": {
+              "click": "[CastGroup] Switch view"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cast.toolbar.vistecche",
+        "type": "menu",
+        "order": 10000,
+        "icon": "pageview",
+        "title": "Viste Disponibili",
+        "children": [
+          {
+            "id": "cast.toolbar.lista1",
+            "order": 100,
+            "icon": "view_module",
+            "title": "Lista X",
+            "description": "CAST.PRATICA.TITOLO",
+            "actions": {
+              "click": "[CastGroup] Vista 1"
+            }
+          },
+          {
+            "id": "cast.toolbar.lista2",
+            "order": 200,
+            "icon": "view_headline",
+            "title": "Lista Y",
+            "description": "CAST.PRATICA.TITOLO",
+            "actions": {
+              "click": "[CastGroup] Vista 2"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

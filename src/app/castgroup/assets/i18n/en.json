@@ -1,0 +1,23 @@
+{
+  "CAST": {
+    "PRATICA": {
+      "TITOLO": "View Dossier",
+      "UN_RISULTATO": "{{ number }} dossier document",
+      "MOLTI_RISULTATI": "{{ number }} dossier documents",
+      "ERRORE": {
+        "GENERICO": "Error during dossier retrieving",
+        "500": "Server Error during dossier retrieving [500]"
+      }
+    },
+    "DOCVIEW": {
+      "TITOLO": "Vista Avanzata",
+      "TOOLTIP": "Passa alla visualizzazione avanzata"
+    },
+    "TOOLBAR": {
+      "UNO": "Sort of",
+      "LISTA_DOC_UNO": "View 1",
+      "LISTA_DOC_DUE": "View 2",
+      "LISTA_DOC_TRE": "View 3"
+    }
+  }
+}

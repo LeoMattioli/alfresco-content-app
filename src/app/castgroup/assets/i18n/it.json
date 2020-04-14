@@ -1,0 +1,23 @@
+{
+  "CAST": {
+    "PRATICA": {
+      "TITOLO": "Vista Dossier",
+      "UN_RISULTATO": "{{ number }} documento nella pratica",
+      "MOLTI_RISULTATI": "{{ number }} documenti nella pratica",
+      "ERRORE": {
+        "GENERICO": "Errore durante il recupero della pratica",
+        "500": "Errore SERVER durante il recupero della pratica [500]"
+      }
+    },
+    "DOCVIEW": {
+      "TITOLO": "Vista Avanzata",
+      "TOOLTIP": "Passa alla visualizzazione avanzata"
+    },
+    "TOOLBAR": {
+      "UNO": "Uno a caso",
+      "LISTA_DOC_UNO": "Vista 1",
+      "LISTA_DOC_DUE": "Vista 2",
+      "LISTA_DOC_TRE": "Vista 3"
+    }
+  }
+}

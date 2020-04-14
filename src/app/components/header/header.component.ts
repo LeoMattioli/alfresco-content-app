@@ -45,7 +45,6 @@ import {
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
-  styleUrls: ['header.component.scss'],
   encapsulation: ViewEncapsulation.None,
   host: { class: 'app-header' }
 })

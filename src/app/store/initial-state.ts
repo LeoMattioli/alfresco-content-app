@@ -27,7 +27,7 @@ import { AppState, AppStore } from '@alfresco/aca-shared/store';
 
 export const INITIAL_APP_STATE: AppState = {
   appName: 'Alfresco Content Application',
-  headerColor: '#ffffff',
+  headerColor: '#1565c0',
   logoPath: 'assets/images/alfresco-logo-white.svg',
   languagePicker: false,
   sharedUrl: '',

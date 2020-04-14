@@ -114,6 +114,8 @@ registerLocaleData(localeFi);
 registerLocaleData(localeDa);
 registerLocaleData(localeSv);
 
+import { CastgroupModule } from './castgroup/castgroup.module';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -147,7 +149,8 @@ registerLocaleData(localeSv);
     AppSearchInputModule,
     AppSearchResultsModule,
     AppHeaderModule,
-    AppNodeVersionModule
+    AppNodeVersionModule,
+    CastgroupModule
   ],
   declarations: [
     AppComponent,
