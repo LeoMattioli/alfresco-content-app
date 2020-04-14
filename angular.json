@@ -74,6 +74,16 @@
                 "glob": "aos.plugin.json",
                 "input": "projects/adf-office-services-ext/assets",
                 "output": "./assets/plugins"
+              },
+              {
+                "glob": "cast.plugin.json",
+                "input": "src/app/castgroup/assets",
+                "output": "./assets/plugins"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/app/castgroup/assets/i18n",
+                "output": "./assets/castgroup/i18n"
               }
             ],
             "styles": [
@@ -145,7 +155,7 @@
             "browserTarget": "app:build",
             "port": 4200,
             "host": "0.0.0.0",
-            "proxyConfig": "src/proxy.conf.js"
+            "proxyConfig": "proxy.conf.js"
           },
           "configurations": {
             "production": {

@@ -50,54 +50,54 @@ services:
         -Xms1500m -Xmx1500m
         '
 
-  alfresco-pdf-renderer:
-    image: alfresco/alfresco-pdf-renderer:2.1.0
-    mem_limit: 1g
-    environment:
-      JAVA_OPTS: ' -Xms256m -Xmx512m'
-    ports:
-      - 8090:8090
+  # alfresco-pdf-renderer:
+  #   image: alfresco/alfresco-pdf-renderer:2.1.0
+  #   mem_limit: 1g
+  #   environment:
+  #     JAVA_OPTS: ' -Xms256m -Xmx512m'
+  #   ports:
+  #     - 8090:8090
 
-  imagemagick:
-    image: alfresco/alfresco-imagemagick:2.1.0
-    mem_limit: 1g
-    environment:
-      JAVA_OPTS: ' -Xms256m -Xmx512m'
-    ports:
-      - 8091:8090
+  # imagemagick:
+  #   image: alfresco/alfresco-imagemagick:2.1.0
+  #   mem_limit: 1g
+  #   environment:
+  #     JAVA_OPTS: ' -Xms256m -Xmx512m'
+  #   ports:
+  #     - 8091:8090
 
-  libreoffice:
-    image: alfresco/alfresco-libreoffice:2.1.0
-    mem_limit: 1g
-    environment:
-      JAVA_OPTS: ' -Xms256m -Xmx512m'
-    ports:
-      - 8092:8090
+  # libreoffice:
+  #   image: alfresco/alfresco-libreoffice:2.1.0
+  #   mem_limit: 1g
+  #   environment:
+  #     JAVA_OPTS: ' -Xms256m -Xmx512m'
+  #   ports:
+  #     - 8092:8090
 
-  tika:
-    image: alfresco/alfresco-tika:2.1.0
-    mem_limit: 1g
-    environment:
-      JAVA_OPTS: ' -Xms256m -Xmx512m'
-    ports:
-      - 8093:8090
+  # tika:
+  #   image: alfresco/alfresco-tika:2.1.0
+  #   mem_limit: 1g
+  #   environment:
+  #     JAVA_OPTS: ' -Xms256m -Xmx512m'
+  #   ports:
+  #     - 8093:8090
 
-  transform-misc:
-    image: alfresco/alfresco-transform-misc:2.1.0
-    mem_limit: 1g
-    environment:
-      JAVA_OPTS: ' -Xms256m -Xmx512m'
-    ports:
-      - 8094:8090
+  # transform-misc:
+  #   image: alfresco/alfresco-transform-misc:2.1.0
+  #   mem_limit: 1g
+  #   environment:
+  #     JAVA_OPTS: ' -Xms256m -Xmx512m'
+  #   ports:
+  #     - 8094:8090
 
-  share:
-    image: alfresco/alfresco-share:6.2.0
-    mem_limit: 1g
-    depends_on:
-      - alfresco
-    environment:
-      - REPO_HOST=alfresco
-      - REPO_PORT=8080
+  # share:
+  #   image: alfresco/alfresco-share:6.2.0
+  #   mem_limit: 1g
+  #   depends_on:
+  #     - alfresco
+  #   environment:
+  #     - REPO_HOST=alfresco
+  #     - REPO_PORT=8080
 
   postgres:
     image: postgres:11.4
@@ -107,6 +107,8 @@ services:
       - POSTGRES_USER=alfresco
       - POSTGRES_DB=alfresco
     command: postgres -c max_connections=300 -c log_min_messages=LOG
+    volumes:
+      - postgresdb-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
 
@@ -165,7 +167,7 @@ services:
       - 8080:8080
     links:
       - alfresco
-      - share
+      # - share
       - content-app
 
   auth:
@@ -179,3 +181,7 @@ services:
       - DB_VENDOR=h2
     ports:
       - 8085:8080
+
+volumes:
+  postgresdb-data:
+    external: true
