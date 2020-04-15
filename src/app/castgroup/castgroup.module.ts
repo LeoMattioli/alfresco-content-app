@@ -13,7 +13,8 @@ import {
   ToolbarModule,
   SidenavLayoutModule,
   TRANSLATION_PROVIDER,
-  DataColumnModule
+  DataColumnModule,
+  PaginationModule
 } from '@alfresco/adf-core';
 
 import { AppHeaderModule } from '../components/header/header.module';
@@ -41,7 +42,8 @@ import { AppToolbarModule } from '../components/toolbar/toolbar.module';
     SidenavLayoutModule,
     AppHeaderModule,
     AppSidenavModule,
-    AppToolbarModule
+    AppToolbarModule,
+    PaginationModule
   ],
   declarations: [DocviewComponent],
   providers: [

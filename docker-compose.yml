@@ -107,8 +107,8 @@ services:
       - POSTGRES_USER=alfresco
       - POSTGRES_DB=alfresco
     command: postgres -c max_connections=300 -c log_min_messages=LOG
-    volumes:
-      - postgresdb-data:/var/lib/postgresql/data
+    # volumes:
+    #   - postgresdb-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
 

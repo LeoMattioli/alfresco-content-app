@@ -43,6 +43,7 @@ import {
   ViewNodeExtras,
   ViewNodeAction
 } from '../../../../../projects/aca-shared/store/src/public_api';
+import { ContentManagementService } from '../../../services/content-management.service';
 
 class ConfigColumn {
   constructor(
@@ -62,7 +63,8 @@ class ConfigColumn {
 @Component({
   selector: 'aca-docview',
   templateUrl: './docview.component.html',
-  styleUrls: ['./docview.component.scss']
+  styleUrls: ['./docview.component.scss'],
+  host: { class: 'app-layout' }
 })
 export class DocviewComponent implements OnInit, OnDestroy {
   @ViewChild('layout')
@@ -150,6 +152,7 @@ export class DocviewComponent implements OnInit, OnDestroy {
     private extensions: AppExtensionService,
     private route: ActivatedRoute,
     private contentApi: ContentApiService,
+    private content: ContentManagementService,
     private nodeActionsService: NodeActionsService,
     private uploadService: UploadService,
     private castStore: Store<CastgroupState>
@@ -231,10 +234,7 @@ export class DocviewComponent implements OnInit, OnDestroy {
       .select(getAppSelection)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(selection => {
-        // this.selection = selection;
-
         this.toolbarActions = this.extensions.getAllowedToolbarActions();
-        // this.openWith = this.extensions.openWithActions;
       });
 
     this.castStore
@@ -243,7 +243,18 @@ export class DocviewComponent implements OnInit, OnDestroy {
       .subscribe(state => {
         this.displayType = state.castgroup.vista;
         this.configSelected = state.castgroup.vistaSelezionata;
+        this.reload();
       });
+
+    this.content.reset.pipe(takeUntil(this.onDestroy$)).subscribe(() => {
+      this.documentList.resetSelection();
+      this.store.dispatch(new SetSelectedNodesAction([]));
+    });
+
+    this.content.reload.pipe(takeUntil(this.onDestroy$)).subscribe(() => {
+      this.documentList.resetSelection();
+      this.store.dispatch(new SetSelectedNodesAction([]));
+    });
   }
 
   ngOnDestroy() {

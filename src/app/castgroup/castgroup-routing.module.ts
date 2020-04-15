@@ -8,7 +8,22 @@ const routes: Routes = [
     component: DocviewComponent,
     data: {
       title: 'CAST.DOCVIEW.TITOLO',
-      defaultNodeId: '-my-'
+      defaultNodeId: '-my-',
+      children: [
+        {
+          path: 'view/:nodeId',
+          outlet: 'viewer',
+          children: [
+            {
+              path: '',
+              data: {
+                navigateSource: 'cast'
+              },
+              loadChildren: '../components/viewer/viewer.module#AppViewerModule'
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -29,7 +44,7 @@ const routes: Routes = [
           {
             path: '',
             data: {
-              navigateSource: 'docview'
+              navigateSource: 'cast'
             },
             loadChildren: '../components/viewer/viewer.module#AppViewerModule'
           }
