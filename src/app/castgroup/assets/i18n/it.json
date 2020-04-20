@@ -13,11 +13,24 @@
       "TITOLO": "Vista Avanzata",
       "TOOLTIP": "Passa alla visualizzazione avanzata"
     },
+    "GRIDVIEW": {
+      "TITOLO": "Vista Griglia",
+      "TOOLTIP": "Passa alla griglia avanzata"
+    },
     "TOOLBAR": {
       "UNO": "Uno a caso",
       "LISTA_DOC_UNO": "Vista 1",
       "LISTA_DOC_DUE": "Vista 2",
       "LISTA_DOC_TRE": "Vista 3"
+    },
+    "ORIGINE-MERCI": {
+      "CONTENT-GROUP": "Origine Merci"
+    },
+    "FATTURA-FORNITORE": {
+      "CONTENT-GROUP": "Fattura da Fornitore"
+    },
+    "DOC-INCOMPLETI": {
+      "CONTENT-GROUP": "Query Doc. Incompleti"
     }
   }
 }

@@ -1,6 +1,12 @@
+import {
+  MatSidenavModule,
+  MatListModule,
+  MatIconModule
+} from '@angular/material';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { PageLayoutModule } from '@alfresco/aca-shared';
 import {
@@ -24,6 +30,9 @@ import { castgroupReducer } from './store/castgroup.reducer';
 import { CastgroupRoutingModule } from './castgroup-routing.module';
 import { DocviewComponent } from './components/docview/docview.component';
 import { AppToolbarModule } from '../components/toolbar/toolbar.module';
+import { GridviewComponent } from './components/gridview/gridview.component';
+
+import { IncompleteDocsEffects } from './store/incomplete-docs.effect';
 
 @NgModule({
   imports: [
@@ -31,6 +40,7 @@ import { AppToolbarModule } from '../components/toolbar/toolbar.module';
     StoreModule.forFeature('castgroupFeature', {
       castgroup: castgroupReducer
     }),
+    EffectsModule.forFeature([IncompleteDocsEffects]),
     CastgroupRoutingModule,
     PageLayoutModule,
     DocumentListModule,
@@ -43,9 +53,12 @@ import { AppToolbarModule } from '../components/toolbar/toolbar.module';
     AppHeaderModule,
     AppSidenavModule,
     AppToolbarModule,
-    PaginationModule
+    PaginationModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule
   ],
-  declarations: [DocviewComponent],
+  declarations: [DocviewComponent, GridviewComponent],
   providers: [
     {
       provide: TRANSLATION_PROVIDER,

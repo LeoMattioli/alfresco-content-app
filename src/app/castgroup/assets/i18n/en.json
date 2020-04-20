@@ -10,8 +10,12 @@
       }
     },
     "DOCVIEW": {
-      "TITOLO": "Vista Avanzata",
-      "TOOLTIP": "Passa alla visualizzazione avanzata"
+      "TITOLO": "Advanced View",
+      "TOOLTIP": "Switch to advanced view"
+    },
+    "GRIDVIEW": {
+      "TITOLO": "Grid View",
+      "TOOLTIP": "Switch to grid view"
     },
     "TOOLBAR": {
       "UNO": "Sort of",

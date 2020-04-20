@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { DocviewComponent } from './components/docview/docview.component';
+import { GridviewComponent } from './components/gridview/gridview.component';
 
 const routes: Routes = [
   {
@@ -51,7 +53,56 @@ const routes: Routes = [
         ]
       }
     ]
+  },
+  {
+    path: 'castgrid',
+    component: GridviewComponent,
+    data: {
+      title: 'CAST.GRIDVIEW.TITOLO',
+      defaultNodeId: '-my-'
+    },
+    children: [
+      {
+        path: 'view/:nodeId',
+        outlet: 'viewer',
+        children: [
+          {
+            path: '',
+            data: {
+              navigateSource: 'castgrid'
+            },
+            loadChildren: '../components/viewer/viewer.module#AppViewerModule'
+          }
+        ]
+      }
+    ]
   }
+  // {
+  //   path: 'castgrid/:folderId',
+  //   component: GridviewComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       component: GridviewComponent,
+  //       data: {
+  //         title: 'CAST.GRIDVIEW.TITOLO'
+  //       }
+  //     },
+  //     {
+  //       path: 'view/:nodeId',
+  //       outlet: 'viewer',
+  //       children: [
+  //         {
+  //           path: '',
+  //           data: {
+  //             navigateSource: 'castgrid'
+  //           },
+  //           loadChildren: '../components/viewer/viewer.module#AppViewerModule'
+  //         }
+  //       ]
+  //     }
+  //   ]
+  // }
 ];
 
 @NgModule({

@@ -20,6 +20,14 @@
             "title": "CAST.DOCVIEW.TITOLO",
             "description": "CAST.DOCVIEW.TOOLTIP",
             "route": "cast"
+          },
+          {
+            "id": "app.navbar.cast.gridview",
+            "order": 5,
+            "icon": "airline_seat_legroom_extra",
+            "title": "CAST.GRIDVIEW.TITOLO",
+            "description": "CAST.GRIDVIEW.TOOLTIP",
+            "route": "castgrid"
           }
         ]
       }
@@ -72,6 +80,55 @@
             }
           }
         ]
+      }
+    ],
+    "content-metadata-presets": [
+      {
+        "id": "cast.content.metadata.origine-merci",
+        "title": "CAST.ORIGINE-MERCI.CONTENT-GROUP",
+        "items": [
+          {
+            "id": "cast.content.metadata.origine-merci.type",
+            "aspect": "demo:TOrigineMerci",
+            "properties": [
+              "demo:dataScadenzaCertificato",
+              "demo:quantitaMateriale",
+              "demo:descrizioneMateriale",
+              "demo:dataCertificato",
+              "demo:codiceMaterialeFornitore",
+              "demo:nomenclaturaDoganale"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cast.content.metadata.fattura-fornitore",
+        "title": "CAST.FATTURA-FORNITORE.CONTENT-GROUP",
+        "items": [
+          {
+            "id": "cast.content.metadata.fattura-fornitore.type",
+            "properties": [
+              "demo:ragsocFornitore",
+              "demo:codFornitore",
+              "demo:numeroFattura",
+              "demo:dataFattura"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cast.content.metadata.incomplete-folder",
+        "title": "CAST.DOC-INCOMPLETI.CONTENT-GROUP",
+        "items": [
+          {
+            "id": "cast.content.metadata.incomplete.type",
+            "aspect": "demo:TFldRules",
+            "properties": [
+              "demo:config"
+            ]
+          }
+        ]
+
       }
     ]
   }
