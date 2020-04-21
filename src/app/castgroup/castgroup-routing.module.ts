@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DocviewComponent } from './components/docview/docview.component';
 import { GridviewComponent } from './components/gridview/gridview.component';
+import { DbcrawlerComponent } from './components/dbcrawler/dbcrawler.component';
 
 const routes: Routes = [
   {
@@ -76,33 +77,11 @@ const routes: Routes = [
         ]
       }
     ]
+  },
+  {
+    path: 'dbcrawler',
+    component: DbcrawlerComponent
   }
-  // {
-  //   path: 'castgrid/:folderId',
-  //   component: GridviewComponent,
-  //   children: [
-  //     {
-  //       path: '',
-  //       component: GridviewComponent,
-  //       data: {
-  //         title: 'CAST.GRIDVIEW.TITOLO'
-  //       }
-  //     },
-  //     {
-  //       path: 'view/:nodeId',
-  //       outlet: 'viewer',
-  //       children: [
-  //         {
-  //           path: '',
-  //           data: {
-  //             navigateSource: 'castgrid'
-  //           },
-  //           loadChildren: '../components/viewer/viewer.module#AppViewerModule'
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // }
 ];
 
 @NgModule({

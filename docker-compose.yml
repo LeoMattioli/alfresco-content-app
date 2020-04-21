@@ -90,14 +90,14 @@ services:
   #   ports:
   #     - 8094:8090
 
-  share:
-    image: alfresco/alfresco-share:6.2.0
-    mem_limit: 1g
-    depends_on:
-      - alfresco
-    environment:
-      - REPO_HOST=alfresco
-      - REPO_PORT=8080
+  # share:
+  #   image: alfresco/alfresco-share:6.2.0
+  #   mem_limit: 1g
+  #   depends_on:
+  #     - alfresco
+  #   environment:
+  #     - REPO_HOST=alfresco
+  #     - REPO_PORT=8080
 
   postgres:
     image: postgres:11.4

@@ -17,9 +17,7 @@ export class IncompleteDocsEffects {
     private searchService: SearchService,
     private searchConfSrv: SearchConfigurationService,
     private castStore: Store<CastgroupState>
-  ) {
-    console.log('Effect constructed');
-  }
+  ) {}
 
   @Effect()
   loadConfibById = this.actions$.pipe(
@@ -82,11 +80,11 @@ export class IncompleteDocsEffects {
     })
   );
 
-  @Effect({ dispatch: false })
-  gino$ = this.actions$.pipe(
-    switchMap(action => {
-      console.log(action);
-      return of();
-    })
-  );
+  // @Effect({ dispatch: false })
+  // gino$ = this.actions$.pipe(
+  //   switchMap(action => {
+  //     console.log(action);
+  //     return of();
+  //   })
+  // );
 }

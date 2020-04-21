@@ -25,22 +25,25 @@ import {
 
 import { AppHeaderModule } from '../components/header/header.module';
 import { AppSidenavModule } from '../components/sidenav/sidenav.module';
-
-import { castgroupReducer } from './store/castgroup.reducer';
-import { CastgroupRoutingModule } from './castgroup-routing.module';
-import { DocviewComponent } from './components/docview/docview.component';
 import { AppToolbarModule } from '../components/toolbar/toolbar.module';
-import { GridviewComponent } from './components/gridview/gridview.component';
 
+import { CastgroupRoutingModule } from './castgroup-routing.module';
+import { castgroupReducer } from './store/castgroup.reducer';
 import { IncompleteDocsEffects } from './store/incomplete-docs.effect';
+import { DocviewComponent } from './components/docview/docview.component';
+import { GridviewComponent } from './components/gridview/gridview.component';
+import { DbcrawlerComponent } from './components/dbcrawler/dbcrawler.component';
+import { DbCrawlerEffects } from './store/db-crawler.effect';
+import { dbCrawlerReducer } from './store/db-crawler.reducer';
 
 @NgModule({
   imports: [
     CommonModule,
     StoreModule.forFeature('castgroupFeature', {
-      castgroup: castgroupReducer
+      castgroup: castgroupReducer,
+      dbCrawler: dbCrawlerReducer
     }),
-    EffectsModule.forFeature([IncompleteDocsEffects]),
+    EffectsModule.forFeature([IncompleteDocsEffects, DbCrawlerEffects]),
     CastgroupRoutingModule,
     PageLayoutModule,
     DocumentListModule,
@@ -58,7 +61,7 @@ import { IncompleteDocsEffects } from './store/incomplete-docs.effect';
     MatListModule,
     MatIconModule
   ],
-  declarations: [DocviewComponent, GridviewComponent],
+  declarations: [DocviewComponent, GridviewComponent, DbcrawlerComponent],
   providers: [
     {
       provide: TRANSLATION_PROVIDER,
