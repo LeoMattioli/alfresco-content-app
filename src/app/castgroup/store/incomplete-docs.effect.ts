@@ -68,7 +68,11 @@ export class IncompleteDocsEffects {
         map((nodi: ResultSetPaging) => {
           const configArray = [];
           nodi.list.entries.forEach(el => {
-            configArray.push(JSON.parse(el.entry.properties['demo:config']));
+            if (el.entry.properties['demo:config']) {
+              configArray.push(JSON.parse(el.entry.properties['demo:config']));
+            } else {
+              console.log(`Configurazione errata o mancante: ${el.entry}`);
+            }
           });
           return new CastgroupActions.LoadIncompleteDocsConfig(configArray);
         }),

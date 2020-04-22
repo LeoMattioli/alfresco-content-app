@@ -28,7 +28,7 @@ export function castgroupReducer(
   state: CastgroupState = initialState,
   action: CastgroupActions.CastgroupActions
 ) {
-  //console.log(`Chiamato Reducer: ${action.type}`);
+  console.log(`Chiamato Reducer: ${action.type}`);
   switch (action.type) {
     case CastgroupActions.SWITCH_VIEW:
       return {

@@ -74,7 +74,7 @@ export class GridviewComponent implements OnInit, OnDestroy {
     });
 
     this.configArray[confIdx].formFields.forEach(el => {
-      let tmpCol = {
+      const tmpCol = {
         key: el.key,
         title: el.label,
         sortable: 'true'

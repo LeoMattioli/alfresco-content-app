@@ -17,11 +17,24 @@
       "TITOLO": "Grid View",
       "TOOLTIP": "Switch to grid view"
     },
+    "CRAWLER": {
+      "TITOLO": "DB Crawler",
+      "TOOLTIP": "DB Crawler app"
+    },
     "TOOLBAR": {
       "UNO": "Sort of",
       "LISTA_DOC_UNO": "View 1",
       "LISTA_DOC_DUE": "View 2",
       "LISTA_DOC_TRE": "View 3"
+    },
+    "ORIGINE-MERCI": {
+      "CONTENT-GROUP": "Goods origin"
+    },
+    "FATTURA-FORNITORE": {
+      "CONTENT-GROUP": "Passive Bills"
+    },
+    "DOC-INCOMPLETI": {
+      "CONTENT-GROUP": "Query Incomplete"
     }
   }
 }

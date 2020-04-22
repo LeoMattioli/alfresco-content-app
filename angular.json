@@ -84,6 +84,11 @@
                 "glob": "**/*",
                 "input": "src/app/castgroup/assets/i18n",
                 "output": "./assets/castgroup/i18n"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/app/castgroup/assets/images",
+                "output": "./assets/images"
               }
             ],
             "styles": [

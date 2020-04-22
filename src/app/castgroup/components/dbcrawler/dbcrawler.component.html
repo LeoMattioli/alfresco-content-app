@@ -1,3 +1,87 @@
-<p>
-  dbcrawler works!
-</p>
+<adf-sidenav-layout
+  #layout
+  [sidenavMin]="70"
+  [sidenavMax]="320"
+  [stepOver]="600"
+  [hideSidenav]="hideSidenav"
+  [expandedSidenav]="expandedSidenav"
+  (expanded)="onExpanded($event)"
+>
+  <adf-sidenav-layout-header>
+    <ng-template let-isMenuMinimized="isMenuMinimized">
+      <app-header
+        role="heading"
+        aria-level="1"
+        *ngIf="!hideSidenav"
+        (toggleClicked)="layout.toggleMenu($event)"
+        [expandedSidenav]="!isMenuMinimized()"
+      >
+      </app-header>
+    </ng-template>
+  </adf-sidenav-layout-header>
+
+  <adf-sidenav-layout-navigation>
+    <ng-template let-isMenuMinimized="isMenuMinimized">
+      <mat-nav-list class="adf-sidenav-linklist">
+        <a
+          *ngFor="let el of configTable; let idx = index"
+          mat-list-item
+          class="adf-sidenav-link"
+          (click)="openConfig(idx)"
+        >
+          <svg width="32" height="32">
+            <rect
+              width="30"
+              height="30"
+              x="1"
+              y="1"
+              rx="15"
+              ry="15"
+              style="fill:#FFFFFF;stroke-width:1;stroke: #c0c0c0;"
+            />
+            <text x="11" y="21">{{ idx + 1 }}</text>
+          </svg>
+          <div class="sidenav-menu-label" *ngIf="!isMenuMinimized()">
+            &nbsp; -&nbsp;{{ el.nome }}
+          </div>
+        </a>
+        <a mat-list-item class="adf-warn-color" (click)="exitView()">
+          <svg width="32" height="32">
+            <rect
+              width="30"
+              height="30"
+              x="1"
+              y="1"
+              rx="15"
+              ry="15"
+              style="fill:#FFFFFF;stroke-width:1;stroke: #c0c0c0;"
+            />
+            <text x="11" y="21">..</text>
+          </svg>
+          <div class="sidenav-menu-label" *ngIf="!isMenuMinimized()">
+            &nbsp; -&nbsp;Indietro
+          </div>
+        </a>
+      </mat-nav-list>
+    </ng-template>
+  </adf-sidenav-layout-navigation>
+
+  <adf-sidenav-layout-content>
+    <aca-page-layout>
+      <aca-page-layout-header>
+        <!-- <adf-breadcrumb root="CAST.DOCVIEW.TITOLO"> </adf-breadcrumb> -->
+        <adf-breadcrumb root="CAST.GRIDVIEW.TITOLO"> </adf-breadcrumb>
+      </aca-page-layout-header>
+      <aca-page-layout-content>
+        <adf-datatable
+          *ngIf="data"
+          (rowClick)="onRowClick($event)"
+          selectionMode="single"
+          [data]="data"
+        >
+        </adf-datatable>
+      </aca-page-layout-content>
+    </aca-page-layout>
+  </adf-sidenav-layout-content>
+</adf-sidenav-layout>
+<router-outlet name="viewer"></router-outlet>

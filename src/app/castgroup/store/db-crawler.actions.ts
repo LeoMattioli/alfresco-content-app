@@ -19,7 +19,7 @@ export class LoadConfSuccess implements Action {
 export class LoadConfIdStart implements Action {
   readonly type = LOAD_CONF_ID_START;
 
-  constructor(public payload: string) {}
+  constructor(public payload: number) {}
 }
 export class LoadConfIdSuccess implements Action {
   readonly type = LOAD_CONF_ID_SUCCESS;

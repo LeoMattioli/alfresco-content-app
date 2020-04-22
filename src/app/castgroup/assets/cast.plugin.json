@@ -16,7 +16,7 @@
           {
             "id": "app.navbar.cast.docview",
             "order": 50,
-            "icon": "loyalty",
+            "icon": "./asset/images/CastGroup-logo.svg",
             "title": "CAST.DOCVIEW.TITOLO",
             "description": "CAST.DOCVIEW.TOOLTIP",
             "route": "cast"
@@ -28,6 +28,14 @@
             "title": "CAST.GRIDVIEW.TITOLO",
             "description": "CAST.GRIDVIEW.TOOLTIP",
             "route": "castgrid"
+          },
+          {
+            "id": "app.navbar.cast.crawler",
+            "order": 5,
+            "icon": "./asset/images/crawler.svg",
+            "title": "CAST.CRAWLER.TITOLO",
+            "description": "CAST.CRAWLER.TOOLTIP",
+            "route": "dbcrawler"
           }
         ]
       }

@@ -1,13 +1,18 @@
 import * as DbCrawlerActions from './db-crawler.actions';
+import { DbCrawlerConfig, DbCrawlerObject } from '../shared/db-crawler-model';
 
 export interface DbCrawlerState {
-  tables: string[];
+  config: DbCrawlerConfig;
   loading: boolean;
+  loadingConfig: boolean;
+  configloaded: DbCrawlerObject;
 }
 
 export const initialState: DbCrawlerState = {
-  tables: null,
-  loading: false
+  config: null,
+  loading: false,
+  loadingConfig: false,
+  configloaded: null
 };
 
 export function dbCrawlerReducer(
@@ -19,13 +24,32 @@ export function dbCrawlerReducer(
     case DbCrawlerActions.LOAD_CONF_START:
       return {
         ...state,
-        loading: true
+        loading: true,
+        config: null,
+        loadingConfig: false,
+        configloaded: null
       };
     case DbCrawlerActions.LOAD_CONF_SUCCESS:
       return {
         ...state,
-        tables: action.payload,
-        loading: false
+        config: action.payload,
+        loading: false,
+        loadingConfig: false,
+        configloaded: null
+      };
+    case DbCrawlerActions.LOAD_CONF_ID_START:
+      return {
+        ...state,
+        loading: false,
+        loadingConfig: true,
+        configloaded: null
+      };
+    case DbCrawlerActions.LOAD_CONF_ID_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        loadingConfig: false,
+        configloaded: action.payload
       };
     default:
       return state;
