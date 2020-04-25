@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@alfresco/adf-core/prebuilt-themes/adf-blue-orange.css';
 @import 'app/ui/application';
+@import '../node_modules/ag-grid-community/dist/styles/ag-grid.css';
+@import '../node_modules/ag-grid-community/dist/styles/ag-theme-material.min.css';
 
 body,
 html {

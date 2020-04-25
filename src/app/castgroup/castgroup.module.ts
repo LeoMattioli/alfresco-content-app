@@ -4,6 +4,7 @@ import {
   MatIconModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -35,6 +36,10 @@ import { GridviewComponent } from './components/gridview/gridview.component';
 import { DbcrawlerComponent } from './components/dbcrawler/dbcrawler.component';
 import { DbCrawlerEffects } from './store/db-crawler.effect';
 import { dbCrawlerReducer } from './store/db-crawler.reducer';
+import { AgGridModule } from 'ag-grid-angular';
+import { NumberFormatterComponent } from './shared/number-formatter.component';
+import { NumericEditorComponent } from './shared/numeric-editor.component';
+import { RangeFilterComponent } from './shared/range-filter.component';
 
 @NgModule({
   imports: [
@@ -44,6 +49,8 @@ import { dbCrawlerReducer } from './store/db-crawler.reducer';
       dbCrawler: dbCrawlerReducer
     }),
     EffectsModule.forFeature([IncompleteDocsEffects, DbCrawlerEffects]),
+    ReactiveFormsModule,
+    FormsModule,
     CastgroupRoutingModule,
     PageLayoutModule,
     DocumentListModule,
@@ -59,9 +66,21 @@ import { dbCrawlerReducer } from './store/db-crawler.reducer';
     PaginationModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    AgGridModule.withComponents([
+      NumberFormatterComponent,
+      NumericEditorComponent,
+      RangeFilterComponent
+    ])
   ],
-  declarations: [DocviewComponent, GridviewComponent, DbcrawlerComponent],
+  declarations: [
+    DocviewComponent,
+    GridviewComponent,
+    DbcrawlerComponent,
+    NumberFormatterComponent,
+    NumericEditorComponent,
+    RangeFilterComponent
+  ],
   providers: [
     {
       provide: TRANSLATION_PROVIDER,

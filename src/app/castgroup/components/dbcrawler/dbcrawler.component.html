@@ -67,21 +67,62 @@
   </adf-sidenav-layout-navigation>
 
   <adf-sidenav-layout-content>
-    <aca-page-layout>
-      <aca-page-layout-header>
-        <!-- <adf-breadcrumb root="CAST.DOCVIEW.TITOLO"> </adf-breadcrumb> -->
-        <adf-breadcrumb root="CAST.GRIDVIEW.TITOLO"> </adf-breadcrumb>
-      </aca-page-layout-header>
-      <aca-page-layout-content>
-        <adf-datatable
-          *ngIf="data"
-          (rowClick)="onRowClick($event)"
-          selectionMode="single"
-          [data]="data"
-        >
-        </adf-datatable>
-      </aca-page-layout-content>
-    </aca-page-layout>
+    <ng-template>
+      <form [formGroup]="configForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="nomeConfig">Nome</label>
+              <input
+                type="text"
+                id="nomeConfig"
+                formControlName="nomeConfig"
+                class="form-control"
+              />
+              <span
+                *ngIf="
+                  !configForm.get('nomeConfig').valid &&
+                  configForm.get('nomeConfig').touched
+                "
+                class="invalid-error"
+              >
+                Dato obbligatorio
+              </span>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <button
+        (click)="onSaveConfig()"
+        class="mat-button-icon"
+        aria-label="Salva"
+      >
+        <mat-icon>save</mat-icon>
+      </button>
+      <button (click)="onAddRow()" class="mat-button">
+        <mat-icon>add</mat-icon>Aggiungi Riga
+      </button>
+      <button (click)="onGridExportCsv()" class="mat-button">
+        <mat-icon>cloud_download</mat-icon>.csv
+      </button>
+      <ag-grid-angular
+        style="width: 100%; height: 100%;"
+        class="ag-theme-material"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [frameworkComponents]="frameworkComponents"
+        [rowDragManaged]="true"
+        [multiSortKey]="multiSortkey"
+        [undoRedoCellEditing]="true"
+        [undoRedoCellEditingLimit]="undoRedoCellEditingLimit"
+        [enableCellChangeFlash]="true"
+        (gridReady)="onGridReady($event)"
+        (cellValueChanged)="onCellValueChanged($event)"
+      >
+      </ag-grid-angular>
+    </ng-template>
   </adf-sidenav-layout-content>
 </adf-sidenav-layout>
 <router-outlet name="viewer"></router-outlet>

@@ -64,25 +64,6 @@ export function castgroupReducer(
           configArray: action.payload
         }
       };
-    case CastgroupActions.LOAD_CONFIG_ID_START:
-      return {
-        ...state,
-        incompleteDocs: {
-          selectedConf: action.payload.idx,
-          configArray: state.incompleteDocs.configArray,
-          loading: state.incompleteDocs.loading
-        }
-      };
-    case CastgroupActions.LOAD_CONFIG_ID_DONE:
-      return {
-        ...state,
-        incompleteDocs: {
-          selectedConf: state.incompleteDocs.selectedConf,
-          configArray: state.incompleteDocs.configArray,
-          loading: state.incompleteDocs.loading,
-          result: action.payload
-        }
-      };
     default:
       return state;
   }

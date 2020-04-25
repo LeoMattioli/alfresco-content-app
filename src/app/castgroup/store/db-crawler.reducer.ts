@@ -2,7 +2,7 @@ import * as DbCrawlerActions from './db-crawler.actions';
 import { DbCrawlerConfig, DbCrawlerObject } from '../shared/db-crawler-model';
 
 export interface DbCrawlerState {
-  config: DbCrawlerConfig;
+  config: DbCrawlerConfig[];
   loading: boolean;
   loadingConfig: boolean;
   configloaded: DbCrawlerObject;
@@ -37,20 +37,10 @@ export function dbCrawlerReducer(
         loadingConfig: false,
         configloaded: null
       };
-    case DbCrawlerActions.LOAD_CONF_ID_START:
-      return {
-        ...state,
-        loading: false,
-        loadingConfig: true,
-        configloaded: null
-      };
-    case DbCrawlerActions.LOAD_CONF_ID_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        loadingConfig: false,
-        configloaded: action.payload
-      };
+    case DbCrawlerActions.SAVE_CONF_START:
+    case DbCrawlerActions.SAVE_CONF_SUCCESS:
+    case DbCrawlerActions.SAVE_CONF_FAILURE:
+      return state;
     default:
       return state;
   }
